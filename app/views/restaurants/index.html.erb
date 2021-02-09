@@ -7,7 +7,15 @@
       <h1>List of all restaurants</h1>
       <div>
         <% @restaurants.each do |restaurant| %>
+        <div class="d-flex">
           <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+          <p>...........</p>
+          <p><%= link_to "Remove",
+                    restaurant_path(restaurant),
+                    method: :delete,
+                    class: "btn btn-danger",
+                    data: { confirm: "Are you sure?" } %></p>
+        </div>
         <% end %>
       </div>
     </div>
