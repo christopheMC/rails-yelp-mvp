@@ -12,13 +12,17 @@
       <%= link_to "leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
       <div class="mt-5">
         <h3>List of reviews</h3>
-        <% @restaurant.reviews.each do |review| %>
-          <p><%= review.content %><%= link_to "Remove",
-                  review_path(review),
-                  method: :delete,
-                  class: "btn btn-danger",
-                  data: { confirm: "Are you sure?" } %></p>
-        <% end %>
+        <ul>
+          <% @restaurant.reviews.each do |review| %>
+            <li><%= review.content %>
+              <%= link_to "Remove",
+                    review_path(review),
+                    method: :delete,
+                    class: "btn btn-danger",
+                    data: { confirm: "Are you sure?" } %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
